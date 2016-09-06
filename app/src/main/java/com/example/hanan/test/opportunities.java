@@ -3,7 +3,6 @@ package com.example.hanan.test;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,9 +12,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.Layout;
 import android.view.MenuItem;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +29,20 @@ public class opportunities extends AppCompatActivity {
         setContentView(R.layout.opp_recycle_view);
 
       //initial data
+        callInitialData();
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar_layout);
+        setSupportActionBar(toolbar);
+
+        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_opp_layout);
+        callDrawerItem();
+
+        op_nav = getSupportActionBar();
+        op_nav.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+        op_nav.setDisplayHomeAsUpEnabled(true);
+    }
+
+    public void callInitialData(){
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
         oppCard.add(new OpportunityCard(R.string.oppTitle1 ,R.string.oppText1 ,R.string.oppnum1,R.drawable.ppl ,R.drawable.in2));
         oppCard.add(new OpportunityCard(R.string.oppTitle2 ,R.string.oppText2 ,R.string.oppnum2,R.drawable.ppl ,R.drawable.end));
@@ -42,17 +53,11 @@ public class opportunities extends AppCompatActivity {
         //GridLayoutManager gr = new GridLayoutManager(this,1);
         recyclerView.setLayoutManager(ln);
         recyclerView.setAdapter(adaptar);
+    }
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar_layout);
-        setSupportActionBar(toolbar);
-
-
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_opp_layout);
-        op_nav = getSupportActionBar();
-        op_nav.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-        op_nav.setDisplayHomeAsUpEnabled(true);
-
+    public void callDrawerItem(){
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(MenuItem item){
@@ -63,8 +68,8 @@ public class opportunities extends AppCompatActivity {
                         startActivity(nextLayout);
                         return true ;
                     //case R.id.my_activities:
-                       //getSupportFragmentManager().beginTransaction().add(R.id.frame_container,new BlankFragmen()).commit();
-                       //return true;
+                    //getSupportFragmentManager().beginTransaction().add(R.id.frame_container,new BlankFragmen()).commit();
+                    //return true;
                     case R.id.my_data:
                         nextLayout = new Intent(opportunities.this,myInfo.class);
                         startActivity(nextLayout);
@@ -74,13 +79,14 @@ public class opportunities extends AppCompatActivity {
                         startActivity(nextLayout);
                         return true ;
                     //case R.id.sign_out:
-                      //  newUser = new Intent(opportunit.this,signI.class);
-                       // startActivity(newUser);
+                    //  newUser = new Intent(opportunit.this,signI.class);
+                    // startActivity(newUser);
                 }
                 return false;
             }
         });
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -91,5 +97,7 @@ public class opportunities extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
 

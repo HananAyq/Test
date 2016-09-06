@@ -9,14 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import java.util.ArrayList;
-import java.util.List;
 
 public class myInfo extends AppCompatActivity {
 
     TextView username ,email ,date ,gender ,phonenumber ,city ;
     Button edit ,save ;
-    final List<TextView> texts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
