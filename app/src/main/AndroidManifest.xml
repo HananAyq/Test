@@ -17,7 +17,9 @@
         </activity>
         <activity android:name=".register" />
         <activity android:name=".opportunities" />
-        <activity android:name=".signIn"></activity>
+        <activity android:name=".signIn" />
+        <activity android:name=".myInfo" />
+        <activity android:name=".aboutApp" />
     </application>
 
 </manifest>

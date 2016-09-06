@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text=" الاسم "
+        android:hint=" الاسم "
         android:id="@+id/editfirstname"
         />
 
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        android:text=" البريد الإلكتروني "
+        android:hint=" البريد الإلكتروني "
         android:ems="10"
         android:id="@+id/editText2" />
     <Space
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:text=" كلمة المرور "
+        android:hint=" كلمة المرور "
         android:ems="10"
         android:id="@+id/editText3" />
     <Space
@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:text=" تأكيد كلمة المرور "
+        android:hint=" تأكيد كلمة المرور "
         android:ems="10"
         android:id="@+id/editText4" />
     <Space
@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="date"
-        android:text=" تاريخ الميلاد "
+        android:hint=" تاريخ الميلاد "
         android:ems="10"
         android:id="@+id/editText5" />
     <Space
@@ -108,7 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="1px"
         android:inputType="phone"
-        android:text=" رقم الهاتف "
+        android:hint=" رقم الهاتف "
         android:id="@+id/editText7" />
 
 
@@ -116,7 +116,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:text=" المدينة "
+        android:hint=" المدينة "
         android:id="@+id/editText8" />
 
 

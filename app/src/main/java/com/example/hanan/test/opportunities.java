@@ -1,13 +1,94 @@
 package com.example.hanan.test;
 
+import android.app.ActionBar;
+import android.content.Intent;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.text.Layout;
+import android.view.MenuItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class opportunities extends AppCompatActivity {
+
+    DrawerLayout drawerLayout ;
+    Toolbar toolbar ;
+    android.support.v7.app.ActionBar op_nav ;
+    List<OpportunityCard> oppCard = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_opportunities);
+        setContentView(R.layout.opp_recycle_view);
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
+        oppCard.add(new OpportunityCard("تطوع من أجل لغتك","\"مرحباً بمحبي اللغة العربية الطامحين إلى إعادة مجدها إليكم سبع عشرة فكرة عملية لخدمة لغتنا الجميلة ....\"","6",R.drawable.ppl,R.drawable.in2));
+        oppCard.add(new OpportunityCard("جزيل للتحرير الكتابي" ,"تعلن جزيل للمنظمات الخيرية النامية عن وجود شاغر لديها في قسم الترجمة , الشؤون الإداريه , وتفتح أبوابها ..","2",R.drawable.ppl,R.drawable.end));
+        oppCard.add(new OpportunityCard("تطوع من أجل لغتك " ,"في ظل الأزمات الصحية التي نمر بها في مجتمعنا لابد من أن نتخذ إجراءات عاجلة ونصنع ثورة للأمراض المزمنه ..." ,"9",R.drawable.ppl,R.drawable.in2));
+
+        Adaptar adaptar = new Adaptar(oppCard);
+        LinearLayoutManager ln = new LinearLayoutManager(this);
+        //GridLayoutManager gr = new GridLayoutManager(this,1);
+        recyclerView.setLayoutManager(ln);
+        recyclerView.setAdapter(adaptar);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar_layout);
+        setSupportActionBar(toolbar);
+
+
+        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_opp_layout);
+        op_nav = getSupportActionBar();
+        op_nav.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+        op_nav.setDisplayHomeAsUpEnabled(true);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item){
+                Intent nextLayout;
+                switch (item.getItemId()){
+                    case R.id.activities:
+                        nextLayout = new Intent(opportunities.this,opportunities.class);
+                        startActivity(nextLayout);
+                        return true ;
+                    //case R.id.my_activities:
+                       //getSupportFragmentManager().beginTransaction().add(R.id.frame_container,new BlankFragmen()).commit();
+                       //return true;
+                    case R.id.my_data:
+                        nextLayout = new Intent(opportunities.this,myInfo.class);
+                        startActivity(nextLayout);
+                        return true ;
+                    case R.id.about:
+                        nextLayout = new Intent(opportunities.this,aboutApp.class);
+                        startActivity(nextLayout);
+                        return true ;
+                    //case R.id.sign_out:
+                      //  newUser = new Intent(opportunit.this,signI.class);
+                       // startActivity(newUser);
+                }
+                return false;
+            }
+        });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case android.R.id.home :
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true ;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
+
