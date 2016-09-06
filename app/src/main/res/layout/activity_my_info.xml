@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#fceadc"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,86 +14,78 @@
         android:layout_gravity="end"
         android:textSize="40sp"
         android:textColor="#9a4102"
-        android:id="@+id/textView3" />
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="350dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content">
+        android:id="@+id/text_myinfo" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" الاسم : "
             android:textSize="25sp"
-            android:layout_margin="10dp"
-            android:id="@+id/textView4" />
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/text_username" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" البريد الإلكتروني : "
-            android:layout_margin="10dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
             android:textSize="25sp"
-            android:id="@+id/textView5" />
+            android:id="@+id/text_email" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" تاريخ الميلاد : "
-            android:layout_margin="10dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
             android:textSize="25sp"
-            android:id="@+id/textView6" />
+            android:id="@+id/text_date" />
 
-        <TextView
+    <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" الجنس : "
-            android:layout_margin="10dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
             android:textSize="25sp"
-            android:id="@+id/textView7" />
+            android:id="@+id/text_gender" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" رقم التواصل : "
-            android:layout_margin="10dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="10dp"
             android:textSize="25sp"
-            android:id="@+id/textView8" />
+            android:id="@+id/text_phone" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" المدينة : "
-            android:layout_margin="10dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="20dp"
             android:textSize="25sp"
-            android:id="@+id/textView9" />
-
-    </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+            android:id="@+id/text_city" />
 
     <Button
-        android:layout_width="271dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="5dp"
         android:text=" تعديل "
+        android:onClick="showDialog"
         android:textSize="25sp"
-        android:textColor="#6c15ae"
-        android:id="@+id/button2" />
-
-    <Button
-        android:layout_width="271dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        android:text=" حفظ "
-        android:textSize="25sp"
-        android:textColor="#6c15ae"
-        android:id="@+id/button3" />
+        android:textColor="#ffffff"
+        android:background="#006fc4"
+        android:id="@+id/edit_button" />
 
 </LinearLayout>

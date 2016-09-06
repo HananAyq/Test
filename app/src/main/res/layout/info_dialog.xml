@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:id="@+id/Message"
+        android:layout_margin="30dp"
+        android:text=" تعديل البيانات "
+        />
+
+    <EditText
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_horizontal"
+        android:hint=" الإيميل "
+        android:inputType="textEmailAddress"
+        />
+    <EditText
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_horizontal"
+        android:hint=" الهاتف "
+        android:inputType="phone"
+        />
+    <EditText
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_horizontal"
+        android:hint=" المدينة "
+        android:inputType="text"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="30dp"
+            android:text=" حفظ "
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:background="#006fc4"
+            android:id="@+id/save_button" />
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="30dp"
+            android:text=" تراجع "
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:background="#006fc4"
+            android:id="@+id/back_button" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

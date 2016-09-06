@@ -5,13 +5,13 @@ package com.example.hanan.test;
  */
 public class OpportunityCard {
 
-    String tilte;
-    String description;
-    String numNeeded;
+    int tilte;
+    int description;
+    int numNeeded;
     int people;
     int state;
 
-    public OpportunityCard(String tilte, String description, String numNeeded, int people, int state) {
+    public OpportunityCard(int tilte, int description, int numNeeded, int people, int state) {
         this.tilte = tilte;
         this.description = description;
         this.numNeeded = numNeeded;

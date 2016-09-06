@@ -31,10 +31,11 @@ public class opportunities extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.opp_recycle_view);
 
+      //initial data
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
-        oppCard.add(new OpportunityCard("تطوع من أجل لغتك","\"مرحباً بمحبي اللغة العربية الطامحين إلى إعادة مجدها إليكم سبع عشرة فكرة عملية لخدمة لغتنا الجميلة ....\"","6",R.drawable.ppl,R.drawable.in2));
-        oppCard.add(new OpportunityCard("جزيل للتحرير الكتابي" ,"تعلن جزيل للمنظمات الخيرية النامية عن وجود شاغر لديها في قسم الترجمة , الشؤون الإداريه , وتفتح أبوابها ..","2",R.drawable.ppl,R.drawable.end));
-        oppCard.add(new OpportunityCard("تطوع من أجل لغتك " ,"في ظل الأزمات الصحية التي نمر بها في مجتمعنا لابد من أن نتخذ إجراءات عاجلة ونصنع ثورة للأمراض المزمنه ..." ,"9",R.drawable.ppl,R.drawable.in2));
+        oppCard.add(new OpportunityCard(R.string.oppTitle1 ,R.string.oppText1 ,R.string.oppnum1,R.drawable.ppl ,R.drawable.in2));
+        oppCard.add(new OpportunityCard(R.string.oppTitle2 ,R.string.oppText2 ,R.string.oppnum2,R.drawable.ppl ,R.drawable.end));
+        oppCard.add(new OpportunityCard(R.string.oppTitle3 ,R.string.oppText3 ,R.string.oppnum3,R.drawable.ppl ,R.drawable.in2));
 
         Adaptar adaptar = new Adaptar(oppCard);
         LinearLayoutManager ln = new LinearLayoutManager(this);

@@ -1,13 +1,50 @@
 package com.example.hanan.test;
 
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class myInfo extends AppCompatActivity {
+
+    TextView username ,email ,date ,gender ,phonenumber ,city ;
+    Button edit ,save ;
+    final List<TextView> texts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_info);
+
+        username = (TextView) findViewById(R.id.edit_name);
+        email = (TextView) findViewById(R.id.edit_email);
+        date = (TextView) findViewById(R.id.edit_date);
+        gender = (TextView) findViewById(R.id.edit_gender);
+        phonenumber = (TextView) findViewById(R.id.edit_phone);
+        city = (TextView) findViewById(R.id.edit_city);
+
+
+
+
+        //needs dataBase to retype the texts in textView
+
+
+
+
+
     }
+
+    public void showDialog(View v){
+        FragmentManager manager = getFragmentManager();
+        InfoDialog dialog = new InfoDialog();
+        dialog.show(manager,"InfoDialog");
+    }
+
 }
