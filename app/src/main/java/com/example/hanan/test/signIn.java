@@ -9,14 +9,18 @@ import android.widget.EditText;
 
 public class signIn extends AppCompatActivity {
 
+    EditText email ,password ;
+    String sEmail ,sPassword ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        final Button next = (Button) findViewById(R.id.newUser);
-        EditText edit = (EditText) findViewById(R.id.username);
+        email = (EditText)findViewById(R.id.signInEmail);
+        password = (EditText)findViewById(R.id.signInPassword);
 
+        final Button next = (Button) findViewById(R.id.newUser);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,5 +29,13 @@ public class signIn extends AppCompatActivity {
              }
            }
         );
+    }
+    public void userLogin(View view){
+        sEmail = email.getText().toString();
+        sPassword = password.getText().toString();
+        String method = "Login";
+        RegisterTasks registerTasks = new RegisterTasks(this);
+        registerTasks.execute(method ,sEmail ,sPassword);
+        startActivity(new Intent(this ,opportunities.class));
     }
 }

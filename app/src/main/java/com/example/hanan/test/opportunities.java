@@ -1,18 +1,25 @@
 package com.example.hanan.test;
 
-import android.app.ActionBar;
+
+import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.text.Layout;
+import android.view.MenuItem;;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,16 +27,22 @@ public class opportunities extends AppCompatActivity {
 
     DrawerLayout drawerLayout ;
     Toolbar toolbar ;
-    android.support.v7.app.ActionBar op_nav ;
-    List<OpportunityCard> oppCard = new ArrayList<>();
+    ArrayList<OpportunityCard> oppCard = new ArrayList<OpportunityCard>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.opp_recycle_view);
 
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
       //initial data
         callInitialData();
+
+        Adaptar adaptar = new Adaptar(oppCard ,this);
+        LinearLayoutManager ln = new LinearLayoutManager(this);
+        //GridLayoutManager gr = new GridLayoutManager(this,1);
+        recyclerView.setLayoutManager(ln);
+        recyclerView.setAdapter(adaptar);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar_layout);
         setSupportActionBar(toolbar);
@@ -37,22 +50,17 @@ public class opportunities extends AppCompatActivity {
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_opp_layout);
         callDrawerItem();
 
-        op_nav = getSupportActionBar();
+        ActionBar op_nav = getSupportActionBar();
         op_nav.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
         op_nav.setDisplayHomeAsUpEnabled(true);
+
+
     }
 
     public void callInitialData(){
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
         oppCard.add(new OpportunityCard(R.string.oppTitle1 ,R.string.oppText1 ,R.string.oppnum1,R.drawable.ppl ,R.drawable.in2));
         oppCard.add(new OpportunityCard(R.string.oppTitle2 ,R.string.oppText2 ,R.string.oppnum2,R.drawable.ppl ,R.drawable.end));
         oppCard.add(new OpportunityCard(R.string.oppTitle3 ,R.string.oppText3 ,R.string.oppnum3,R.drawable.ppl ,R.drawable.in2));
-
-        Adaptar adaptar = new Adaptar(oppCard);
-        LinearLayoutManager ln = new LinearLayoutManager(this);
-        //GridLayoutManager gr = new GridLayoutManager(this,1);
-        recyclerView.setLayoutManager(ln);
-        recyclerView.setAdapter(adaptar);
     }
 
     public void callDrawerItem(){
@@ -97,7 +105,5 @@ public class opportunities extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }
 

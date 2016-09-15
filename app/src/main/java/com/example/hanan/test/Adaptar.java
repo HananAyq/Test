@@ -1,10 +1,14 @@
 package com.example.hanan.test;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,16 +16,18 @@ import java.util.List;
  */
 public class Adaptar extends RecyclerView.Adapter<ViewHolderItem> {
 
-    List<OpportunityCard> card ;
+    ArrayList<OpportunityCard> card ;
+    Context context;
 
-    public Adaptar(List<OpportunityCard> card){
+    public Adaptar(ArrayList<OpportunityCard> card , Context context){
         this.card = card ;
+        this.context=context;
     }
 
     @Override
     public ViewHolderItem onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_opportunities, parent,false);
-        return new ViewHolderItem(v);
+        return new ViewHolderItem(v ,context ,card);
     }
 
     @Override
@@ -37,4 +43,9 @@ public class Adaptar extends RecyclerView.Adapter<ViewHolderItem> {
     public int getItemCount() {
         return card.size();
     }
+
+
 }
+
+
+

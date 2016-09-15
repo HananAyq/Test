@@ -21,6 +21,7 @@
 
         <item android:id="@+id/my_data"
             android:icon="@drawable/ic_account_box_black_24dp"
+            android:onClick="editJSON"
             app:showAsAction="always"
             android:title=" بياناتي ">
         </item>

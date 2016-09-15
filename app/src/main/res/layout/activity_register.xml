@@ -98,6 +98,7 @@
         android:textSize="25sp"
         android:textColor="#ffffff"
         android:background="#006fc4"
+        android:onClick="userReg"
         android:id="@+id/button_register" />
     <TextView
         android:layout_width="match_parent"

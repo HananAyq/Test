@@ -13,7 +13,6 @@ import android.widget.TextView;
 public class myInfo extends AppCompatActivity {
 
     TextView username ,email ,date ,gender ,phonenumber ,city ;
-    Button edit ,save ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +32,6 @@ public class myInfo extends AppCompatActivity {
         //needs dataBase to retype the texts in textView
 
 
-
-
-
-    }
-
-    public void showDialog(View v){
-        FragmentManager manager = getFragmentManager();
-        InfoDialog dialog = new InfoDialog();
-        dialog.show(manager,"InfoDialog");
     }
 
 }

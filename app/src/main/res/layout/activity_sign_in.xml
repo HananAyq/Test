@@ -38,17 +38,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:inputType="textPersonName"
-                android:hint=" اسم المسخدم "
-                android:id="@+id/username"
+                android:inputType="textEmailAddress"
+                android:hint=" البريد الإلكتروني "
+                android:id="@+id/signInEmail"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="25dp"
-                android:inputType="textPersonName"
+                android:inputType="textPassword"
                 android:hint=" كلمة المرور "
-                android:id="@+id/editText2"
+                android:id="@+id/signInPassword"
                 />
 
             <TextView
@@ -68,10 +68,11 @@
             android:layout_marginBottom="15dp"
             android:layout_gravity="center"
             android:text="دخول"
+            android:onClick="userLogin"
             android:textSize="30sp"
             android:textColor="#ffffff"
             android:background="#c46600"
-            android:id="@+id/button"
+            android:id="@+id/logIn"
             />
         <Button
             android:layout_width="271dp"
